@@ -2,11 +2,16 @@ import { AuthOptions } from "next-auth";
 import GitHubProvider from "next-auth/providers/github";
 import EmailProvider from "next-auth/providers/email";
 import { PrismaAdapter } from "@auth/prisma-adapter";
-import { dbClient } from "../../shared/lib/db";
+import { dbClient } from "@/shared/lib/db";
 import { privateConfig } from "@/shared/config/private";
 import { compact } from "lodash-es";
 
 export const nextAuthConfig: AuthOptions = {
+  pages: {
+    signIn: "/auth/sign-in",
+    newUser: "/auth/new-user",
+    verifyRequest: "/auth/verify-request",
+  },
   adapter: PrismaAdapter(dbClient) as AuthOptions["adapter"],
   providers: compact([
     EmailProvider({
