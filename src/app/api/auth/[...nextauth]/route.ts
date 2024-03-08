@@ -1,5 +1,5 @@
 import NextAuth from "next-auth";
-import { nextAuthConfig } from "@/entities/session/next-auth-config";
+import { nextAuthConfig } from "@/entities/user/next-auth-config";
 
 const authHandler = NextAuth(nextAuthConfig);
 

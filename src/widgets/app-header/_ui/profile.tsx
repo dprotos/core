@@ -1,6 +1,6 @@
 "use client";
 
-import { useAppSession } from "@/entities/session/use-app-session";
+import { useAppSession } from "@/entities/user/session.client";
 import { SignInButton } from "@/features/auth/sign-in-button";
 import { useSignOut } from "@/features/auth/use-sign-out";
 import { Avatar, AvatarFallback, AvatarImage } from "@/shared/ui/avatar";
@@ -22,6 +22,7 @@ export function Profile() {
   const session = useAppSession();
   const { signOut, isPending: isLoadingSignOut } = useSignOut();
 
+  console.log(session);
   if (session.status === "loading") {
     return <Skeleton className="w-8 h-8 rounded-full" />;
   }
@@ -38,7 +39,7 @@ export function Profile() {
           className="p-px rounded-full self-center h-8 w-8"
         >
           <Avatar className="w-8 h-8">
-            <AvatarImage src={session.data?.user.image} />
+            <AvatarImage src={session.data?.user?.image ?? undefined} />
             <AvatarFallback>DP</AvatarFallback>
           </Avatar>
         </Button>
@@ -47,7 +48,7 @@ export function Profile() {
         <DropdownMenuLabel>
           <p>Мой аккаунт</p>
           <p className="text-xs text-muted-foreground overflow-hidden text-ellipsis">
-            {session.data?.user.name}
+            {session.data?.user?.name}
           </p>
         </DropdownMenuLabel>
         <DropdownMenuGroup></DropdownMenuGroup>
