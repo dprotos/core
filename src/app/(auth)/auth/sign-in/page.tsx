@@ -1,7 +1,7 @@
 import { SignInForm } from "@/features/auth/sign-in-form.server";
 import { Card, CardContent, CardHeader } from "@/shared/ui/card";
 import Link from "next/link";
-
+export const dynamic = "force-dynamic";
 export default function SignInPage() {
   return (
     <>
