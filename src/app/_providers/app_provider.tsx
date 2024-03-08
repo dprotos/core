@@ -1,5 +1,5 @@
 "use client";
-import { AppSessionProvider } from "@/entities/user/session.client";
+import { AppSessionProvider } from "@/entities/user/session";
 import { ThemeProvider } from "@/features/themes/theme-provider";
 import { queryClient } from "@/shared/api/query-client";
 import { ComposeChildren } from "@/shared/lib/react";

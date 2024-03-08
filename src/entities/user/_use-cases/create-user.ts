@@ -13,7 +13,6 @@ type CreateUser = {
 export class CreateUserUseCase {
   async exec(data: CreateUser) {
     const adminEmails = privateConfig.ADMIN_EMAILS?.split(",") ?? [];
-    console.log(data);
     const role = adminEmails.includes(data.email.toLowerCase())
       ? ROLES.ADMIN
       : ROLES.USER;
