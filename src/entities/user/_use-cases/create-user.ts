@@ -1,6 +1,6 @@
 import { createId } from "@/shared/lib/id";
 import { ROLES, UserEntity } from "../_domain/types";
-import { userRepository } from "../_repositoties/user.repository";
+import { userRepository } from "../_repositoties/user";
 import { privateConfig } from "@/shared/config/private";
 
 type CreateUser = {
