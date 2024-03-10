@@ -14,7 +14,7 @@ export function UpdateProfileForm({
   callbackUrl?: string;
 }) {
   const router = useRouter();
-  const profileQuery = useQuery({ ...getProfileQuery(userId) });
+  const profileQuery = useQuery({ ...getProfileQuery(userId), retry: 0 });
 
   const handleSuccess = () => {
     if (callbackUrl) {
@@ -27,7 +27,7 @@ export function UpdateProfileForm({
   }
 
   if (!profileQuery.data) {
-    return <div>Не удалось загрузить профиль, возможно нет прав.</div>;
+    return <div>Не удалось загрузить профиль, возможно у вас нет прав</div>;
   }
 
   return (

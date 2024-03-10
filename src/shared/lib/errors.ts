@@ -9,3 +9,9 @@ export class NeedAuthError extends Error {
     super(message);
   }
 }
+
+export class BadRequest extends Error {
+  constructor(message = "Bad request") {
+    super(message);
+  }
+}
