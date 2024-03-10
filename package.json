@@ -9,7 +9,11 @@
     "lint": "next lint",
     "lint:types": "tsc --noEmit",
     "prettier": "prettier -w .",
-    "test": "jest"
+    "test": "jest",
+    "test:e2e": "npx prisma migrate reset --force && playwright test"
+  },
+  "prisma": {
+    "seed": "ts-node --project tsconfig.migrate.json prisma/seed.ts"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^1.5.0",

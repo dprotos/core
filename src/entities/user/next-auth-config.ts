@@ -9,6 +9,13 @@ import { createUserUseCase } from "./_use-cases/create-user";
 
 const prismaAdapter = PrismaAdapter(dbClient);
 
+const emailToken = privateConfig.TEST_EMAIL_TOKEN
+  ? {
+      generateVerificationToken: () => privateConfig.TEST_EMAIL_TOKEN ?? "",
+      sendVerificationRequest: () => console.log("no emails in test mode"),
+    }
+  : {};
+
 export const nextAuthConfig: AuthOptions = {
   pages: {
     signIn: "/auth/sign-in",
@@ -33,6 +40,7 @@ export const nextAuthConfig: AuthOptions = {
 
   providers: compact([
     EmailProvider({
+      ...emailToken,
       server: {
         host: privateConfig.EMAIL_SERVER_HOST,
         port: parseInt(privateConfig.EMAIL_SERVER_PORT),

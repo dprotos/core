@@ -4,6 +4,12 @@ services:
   db:
     image: postgres
     restart: always
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+        reservations:
+          memory: 128M
     ports:
       - 5432:5432
     environment:
@@ -14,6 +20,12 @@ services:
       - db-data:/var/lib/postgresql/data
   minio:
     image: minio/minio:latest
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+        reservations:
+          memory: 128M
     entrypoint: sh
     ports:
       - 9000:9000
