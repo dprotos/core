@@ -13,7 +13,7 @@ export function ProfileAvatar({
   const profileLetters = getProfileLetters(profile);
   return (
     <Avatar className={className}>
-      <AvatarImage src={profile.image ?? undefined} />
+      <AvatarImage src={profile.image ?? ""} className="object-cover" />
       <AvatarFallback>{profileLetters}</AvatarFallback>
     </Avatar>
   );
