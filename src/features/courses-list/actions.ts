@@ -1,8 +1,8 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { coursesRepository } from "./courses-repository";
-import { CreateCourseListElementCommand } from "./model/types";
+import { coursesRepository } from "../../entities/course/_repositories/course";
+import { CreateCourseListElementCommand } from "../../entities/course/_domain/types";
 
 export const createCourseAction = async (
   command: CreateCourseListElementCommand,
